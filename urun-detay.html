@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürün Detayı - MASAL ÇİÇEKÇİLİK</title>
+    <link rel="stylesheet" href="stlye.css?v=20251030v10">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .product-detail {
+            min-height: 100vh;
+            padding: 100px 0 50px;
+        }
+        
+        .detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--primary-color);
+            transform: translateX(-5px);
+        }
+        
+        .detail-content {
+            background: rgba(245, 235, 220, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        .detail-left {
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+        }
+        
+        .detail-icon {
+            font-size: 15rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .detail-right {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .detail-right h1 {
+            color: var(--dark-brown);
+            font-size: 2.5rem;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .detail-desc {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        .price-box {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+            padding: 20px 0;
+            border-top: 3px solid rgba(139, 90, 60, 0.2);
+            border-bottom: 3px solid rgba(139, 90, 60, 0.2);
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .kdv-badge {
+            background: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-item span:first-child {
+            font-size: 1.8rem;
+        }
+        
+        .feature-item span:last-child {
+            font-weight: 500;
+            color: var(--dark-brown);
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 20px 35px;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.6);
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(139, 90, 60, 0.2);
+        }
+        
+        .contact-info p {
+            margin: 10px 0;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 100px 20px;
+            color: var(--dark-brown);
+        }
+
+        .error-message h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-left {
+                padding: 25px;
+            }
+            
+            .detail-icon {
+                font-size: 7rem;
+            }
+            
+            .detail-right {
+                padding: 25px;
+                gap: 15px;
+            }
+            
+            .detail-right h1 {
+                font-size: 1.6rem;
+            }
+            
+            .detail-desc {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            
+            .price {
+                font-size: 2rem;
+            }
+            
+            .price-box {
+                padding: 12px 0;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                margin: 10px 0;
+            }
+            
+            .feature-item {
+                padding: 10px;
+            }
+            
+            .feature-item span:first-child {
+                font-size: 1.3rem;
+            }
+            
+            .feature-item span:last-child {
+                font-size: 0.85rem;
+            }
+            
+            .whatsapp-btn {
+                padding: 15px 25px;
+                font-size: 1.1rem;
+            }
+            
+            .contact-info {
+                margin-top: 12px;
+                padding-top: 12px;
+            }
+            
+            .contact-info p {
+                font-size: 0.9rem;
+                margin: 6px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-detail {
+                padding: 80px 0 20px;
+            }
+            
+            .detail-left,
+            .detail-right {
+                padding: 20px 15px;
+                gap: 12px;
+            }
+            
+            .detail-icon {
+                font-size: 5rem;
+            }
+            
+            .detail-right h1 {
+                font-size: 1.4rem;
+            }
+            
+            .detail-desc {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+            
+            .price {
+                font-size: 1.8rem;
+            }
+            
+            .kdv-badge {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+            
+            .price-box {
+                padding: 10px 0;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                margin: 8px 0;
+            }
+            
+            .feature-item {
+                padding: 8px;
+            }
+            
+            .feature-item span:first-child {
+                font-size: 1.2rem;
+            }
+            
+            .feature-item span:last-child {
+                font-size: 0.8rem;
+            }
+            
+            .whatsapp-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+            
+            .contact-info {
+                margin-top: 10px;
+                padding-top: 10px;
+            }
+            
+            .contact-info p {
+                font-size: 0.85rem;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit; cursor: pointer;">
+                <div class="logo-icon-box">
+                    <span class="logo-flower">🌹</span>
+                    <span class="logo-sparkle">✨</span>
+                </div>
+                <div class="logo-text">
+                    <h1>MASAL ÇİÇEKÇİLİK</h1>
+                    <p>Her Çiçek Bir Masal Anlatır</p>
+                </div>
+            </a>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html#anasayfa">Ana Sayfa</a></li>
+                    <li><a href="index.html#urunler">Ürünler</a></li>
+                    <li><a href="index.html#iletisim">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Floating Social Buttons -->
+    <div class="floating-social-buttons">
+        <a href="https://api.whatsapp.com/send?phone=905321764432&text=Merhaba, çiçek siparişi vermek istiyorum" target="_blank" class="floating-btn whatsapp-btn">
+            <img src="WhatsApp.png" alt="WhatsApp">
+        </a>
+        <a href="https://www.instagram.com/malatyacicekgonder/" target="_blank" class="floating-btn instagram-btn">
+            <img src="Instagram_logo_2022.jpg" alt="Instagram">
+        </a>
+        <a href="https://maps.app.goo.gl/vXGomxwxUvvv9WE96" target="_blank" class="floating-btn maps-btn">
+            <img src="Google_Maps_icon_(2015-2020).jpg" alt="Google Maps" style="background: white; border-radius: 50%; padding: 8px;">
+        </a>
+    </div>
+
+    <!-- Product Detail -->
+    <section class="product-detail" id="product-detail">
+        <div class="detail-container">
+            <a href="index.html#urunler" class="back-link">← Ürünlere Dön</a>
+            
+            <div class="detail-content" id="detail-content">
+                <!-- JavaScript ile içerik buraya yüklenecek -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MASAL ÇİÇEKÇİLİK</h3>
+                    <p>Her çiçek bir masal anlatır. Sevdiklerinize özel anlar yaratmak için buradayız.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <p>📞 Telefon: 0422 123 45 67</p>
+                    <p>📱 WhatsApp: 0532 153 91 44</p>
+                    <p>📍 Malatya / Türkiye</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Çalışma Saatleri</h4>
+                    <p>Pazartesi - Cumartesi: 09:00 - 19:00</p>
+                    <p>Pazar: 10:00 - 17:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MASAL ÇİÇEKÇİLİK. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=20251030v11"></script>
+    <script>
+        // URL'den ürün ID'sini al
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+
+        // Ürünü bul ve göster
+        if (productId && products[productId]) {
+            const product = products[productId];
+            
+            // Sayfa başlığını güncelle
+            document.title = `${product.name} - MASAL ÇİÇEKÇİLİK`;
+            
+            // İçeriği oluştur
+            const contentHTML = `
+                <div class="detail-grid">
+                    <div class="detail-left">
+                        <div class="detail-icon">${product.icon}</div>
+                    </div>
+                    <div class="detail-right">
+                        <h1>${product.name}</h1>
+                        <p class="detail-desc">${product.description}</p>
+                        
+                        <div class="price-box">
+                            <span class="price">${product.price} TL</span>
+                            <span class="kdv-badge">KDV Dahil</span>
+                        </div>
+                        
+                        <div class="features-grid">
+                            ${product.features.map(feature => `
+                                <div class="feature-item">
+                                    <span>${feature.icon}</span>
+                                    <span>${feature.text}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <a href="https://api.whatsapp.com/send?phone=905321764432&text=${encodeURIComponent(`Merhaba! 🌹\n\n*${product.name}* ürününü sipariş vermek istiyorum.\n\n💰 Fiyat: ${product.price} TL (KDV Dahil)\n🚚 Aynı gün teslimat\n\nTeşekkürler!`)}" target="_blank" class="whatsapp-btn">
+                            <span>WhatsApp ile Sipariş Ver</span>
+                            <img src="WhatsApp.png" alt="WhatsApp" style="width: 30px; height: 30px; object-fit: contain;">
+                        </a>
+                        
+                        <div class="contact-info">
+                            <p><strong>📞 Telefon:</strong> 0422 123 45 67</p>
+                            <p><strong>📱 WhatsApp:</strong> 0532 153 91 44</p>
+                            <p><strong>📍 Adres:</strong> Malatya / Türkiye</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('detail-content').innerHTML = contentHTML;
+        } else {
+            // Ürün bulunamadı
+            document.getElementById('detail-content').innerHTML = `
+                <div class="error-message">
+                    <h1>😕 Ürün Bulunamadı</h1>
+                    <p>Aradığınız ürün mevcut değil.</p>
+                    <a href="index.html#urunler" class="btn btn-primary" style="display: inline-block; margin-top: 20px;">Ürünlere Dön</a>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
